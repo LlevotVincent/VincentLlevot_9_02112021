@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(2, 2, 3, 1);
+    box-shadow: 10px 5px 5px grey;
+}
+.logo{
+    margin: 20px 30px 20px 30px;
+}
+.navbar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px;
+    font-family: 'Roboto';
+    font-size: 24px;
+    font-weight: 500;
+
+
+
+
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
