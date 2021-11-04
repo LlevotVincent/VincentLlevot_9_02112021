@@ -1,0 +1,11 @@
+.activitygraph{
+    margin: 80px 0 0 109px;
+    width: 60%;
+    height: 320px;
+    background-color: rgba(251, 251, 251, 1);
+}
+
+.activitygraph>h3 {
+    margin: 24px 0 0 32px;
+    text-align: left;
+}

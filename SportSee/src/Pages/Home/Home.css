@@ -22,3 +22,7 @@
     text-align: left;
     margin-left: 107px;
 }
+
+.Graph{
+    display: flex;
+}

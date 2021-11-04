@@ -1,8 +1,8 @@
 import React from 'react';
-import iconyoga from '../../Assets/iconyoga.svg'
-import iconswimming from '../../Assets/iconswimming.svg'
-import iconcycling from '../../Assets/iconcycling.svg'
-import iconbodybuilding from '../../Assets/iconbodybuilding.svg'
+import iconyoga from '../../Assets/yoga-icon.svg'
+import iconswimming from '../../Assets/swimming-icon.svg'
+import iconcycling from '../../Assets/cycling-icon.svg'
+import iconbodybuilding from '../../Assets/bodybuilding-icon.svg'
 import '../Navleft/Navleft.css'
 import { NavLink } from 'react-router-dom'
 
