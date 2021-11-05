@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "scripts": {
+    "start": "concurrently \"cd P9_Api/app && node index.js\" \"cd SportSee && yarn start\""
+  }
+}
+
+

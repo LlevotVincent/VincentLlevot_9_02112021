@@ -16,6 +16,7 @@
 }
 .User-name{
     color: red;
+    margin-left: 1rem;
 }
 .User-identifier > h3{
     display: flex;
@@ -23,6 +24,16 @@
     margin-left: 107px;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
 .Graph{
     display: flex;
+}
+
+.nutriscore{
+    width: 20%;
+    float: right;
+
 }
