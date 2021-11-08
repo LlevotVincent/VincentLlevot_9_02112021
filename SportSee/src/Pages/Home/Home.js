@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Activitygraph from '../../Component/Activitygraph/Activitygraph';
+import Activity from '../../Component/Activity/BarChart';
 import Nutritiondata from '../../Component/Nutritiondata/Nutritiondata';
 import '../Home/Home.css'
 import calories from '../../Assets/calories-icon.svg'
@@ -48,7 +48,7 @@ class Home extends React.Component {
         </div>
         <div className='grid'>
           <div className='Graph'>
-            <Activitygraph icon='' value='' text='' />
+            <Activity icon='' value='' text='' />
           </div>
           <div className='nutriscore'>
             <Nutritiondata logo={calories} value={this.state.calorieCount} unit='kCal' type='calorie' />
