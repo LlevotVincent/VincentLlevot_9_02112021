@@ -1,7 +1,6 @@
 .RadarChart-container{
-    background-color: black;
+    background-color: #282D30;
     border-radius: 5px;
     height: 263px;
-    grid-column-start: 2;
-    grid-row-end: 4;
+
 }
