@@ -60,7 +60,7 @@ class Activity extends React.Component {
                             bottom: 5,
                         }}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey={this.state.sessions.day} />
+                        <XAxis dataKey="day" />
                         <YAxis />
                         <Tooltip />
                         <Legend  

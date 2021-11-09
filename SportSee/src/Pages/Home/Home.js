@@ -9,6 +9,7 @@ import calories from '../../Assets/calories-icon.svg'
 import protein from '../../Assets/protein-icon.svg'
 import carbs from '../../Assets/carbs-icon.svg'
 import fat from '../../Assets/fat-icon.svg'
+import ScorePerf from '../../Component/Score/Score';
 
 
 
@@ -58,6 +59,9 @@ class Home extends React.Component {
           </div>
           <div className='Performance'>
             <GraphPerformance />
+          </div>
+          <div className='ScorePerf'>
+            <ScorePerf />
           </div>
           <div className='Nutri-calorie'>
             <Nutritiondata logo={calories} value={this.state.calorieCount} unit='kCal' type='calorie' />

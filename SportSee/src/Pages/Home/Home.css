@@ -38,12 +38,14 @@
     grid-column-end: 3;
 }
 .TimeSessions{
-    grid-row-end: 4;
+    grid-row-start: 4;
 }
 
 .Performance{
-    grid-column-start: 2;
-    grid-row-end: 4;
+    grid-row-start: 4;
+}
+.ScorePerf{
+    grid-row-start: 4;
 }
 
 .Nutri-calorie{

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import './GraphPerformance.css'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 
 class GraphPerformance extends React.Component {
 
@@ -16,9 +17,9 @@ class GraphPerformance extends React.Component {
         axios.get("http://localhost:3001/user/18/performance")
 
             .then((res) => {
-                console.log(res.data.data.data)
+                console.log(res.data.data)
                 this.setState(() => ({
-                  data : res.data.data.data
+                  data : res.data.data,
                 }))
             })
     }
@@ -28,15 +29,13 @@ class GraphPerformance extends React.Component {
 
 render() {
     return (
-      <div>
-      <ResponsiveContainer width="100%" height="100%">
+      <div className='RadarChart-container'>
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={this.state.data}>
           <PolarGrid />
-          <PolarAngleAxis dataKey={this.state.kind} />
+          <PolarAngleAxis dataKey="kind" />
           <PolarRadiusAxis />
-          <Radar name={this.state.userId} dataKey={this.state.value} stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+          <Radar name="18" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
         </RadarChart>
-      </ResponsiveContainer>
       </div>
     );
   }
