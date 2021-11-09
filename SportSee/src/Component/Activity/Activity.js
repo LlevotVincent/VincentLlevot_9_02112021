@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import './BarChart.css'
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import './Activity.css'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 
@@ -19,7 +19,7 @@ class Activity extends React.Component {
         axios.get("http://localhost:3001/user/18/activity")
 
             .then((res) => {
-                console.log(res.data.data.sessions)
+                // console.log(res.data.data.sessions)
                 this.setState(() => ({
                     sessions: res.data.data.sessions,
                     day : res.data.data.sessions.day,
@@ -28,21 +28,21 @@ class Activity extends React.Component {
     }
 
 
-    renderLegend = (datakey) => {
-
-        if(datakey= "kilogram"){
-            datakey= "Poids (kg)"
-        }
-        else {
-            datakey= "Calories brûlées (kCal)"
-        }
+    // renderLegend = (props) => {
+    //     const { payload } = props;
+    //     if(datakey= "kilogram"){
+    //         value= "Poids (kg)"
+    //     }
+    //     else {
+    //         value= "Calories brûlées (kCal)"
+    //     }
       
-        return (
-            <Legend content={datakey} />
-        );
-      }
+    //     return (
+    //         <Legend content={value} />
+    //     );
+    //   }
     render() {
-        console.log(this.state.sessions)
+
         return (
             <div className='activity'>
                 <div className='activity-title'>
@@ -58,8 +58,7 @@ class Activity extends React.Component {
                             right: 30,
                             left: 20,
                             bottom: 5,
-                        }}
-                    >
+                        }}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey={this.state.sessions.day} />
                         <YAxis />
@@ -69,7 +68,7 @@ class Activity extends React.Component {
                             verticalAlign="top" 
                             iconType="circle" 
                             wrapperStyle={{paddingTop: 23 , paddingBottom:30}}
-                            content={renderLegend}
+                            // content={renderLegend}
                         />
                         <Bar dataKey="kilogram" fill="#000000" barSize={7} radius={3}/>
                         <Bar dataKey="calories" fill="#ff0000" barSize={7} radius={3}/>

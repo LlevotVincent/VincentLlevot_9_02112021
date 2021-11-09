@@ -14,7 +14,7 @@ class Nutritiondata extends React.Component {
         axios.get("http://localhost:3001/user/18")
 
             .then((res) => {
-                console.log(res.data.data.keyData.firstName)
+                // console.log(res.data.data.keyData.firstName)
                 this.setState(() => ({
                     firstName: res.data.data.keyData.firstName,
                 }))
@@ -24,7 +24,7 @@ class Nutritiondata extends React.Component {
     render() {
         return (
             <div className='Nutritiondata'>
-                <img className='Nutrilogo' src={this.props.logo} />
+                <img className='Nutrilogo' src={this.props.logo} alt="logo" />
                 <div className='Nutrisscore'>
                     <div className='Nutri-value'>{this.props.value}{this.props.unit}</div>
                     <div className='Nutri-unit'>{this.props.type}</div>

@@ -26,14 +26,39 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-.Graph{
-    display: flex;
+    grid-template-columns: repeat(4, 258px);
+    grid-template-rows: repeat(4, 124px);
+    row-gap: 39px;
+    column-gap: 30px;
+    margin-left: 209px;
 }
 
-.nutriscore{
-    width: 20%;
-    float: right;
+.weeklyactivity{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.TimeSessions{
+    grid-row-end: 4;
+}
 
+.Performance{
+    grid-column-start: 2;
+    grid-row-end: 4;
+}
+
+.Nutri-calorie{
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+.Nutri-protein{
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+.Nutri-carbs{
+    grid-column-start: 4;
+    grid-row-start: 3;
+}
+.Nutri-fat{
+    grid-column: 4;
+    grid-row: 4;
 }

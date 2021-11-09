@@ -11,16 +11,16 @@ class Navleft extends React.Component {
         return (
             <nav className='navleft'>
                 <NavLink to='/'>
-                    <img className='sporticon' src={iconyoga}></img>
+                    <img className='sporticon' src={iconyoga} alt="icône de Yoga"></img>
                 </NavLink>
                 <NavLink to='/'>
-                    <img className='sporticon' src={iconswimming}></img>
+                    <img className='sporticon' src={iconswimming} alt="icône de natation"></img>
                 </NavLink>
                 <NavLink to='/'>
-                    <img className='sporticon' src={iconcycling}></img>
+                    <img className='sporticon' src={iconcycling} alt="icône de vélo"></img>
                 </NavLink>
                 <NavLink to='/'>
-                    <img className='sporticon' src={iconbodybuilding}></img>
+                    <img className='sporticon' src={iconbodybuilding} alt="icône d'altère"></img>
                 </NavLink>
                 <p className='copyright'>copyright, SportSee 2020</p>
             </nav>

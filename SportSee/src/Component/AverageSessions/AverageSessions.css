@@ -1,0 +1,16 @@
+.lineChart-container{
+    background-color: red;
+    border-radius: 5px;
+    height: 263px;
+    grid-column-start: 2;
+}
+
+.lineChart-container>h2 {
+    width: 60%;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    text-align: left;
+    margin: 29px 0 0 34px;
+}
