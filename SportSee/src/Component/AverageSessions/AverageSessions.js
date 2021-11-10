@@ -9,7 +9,7 @@ class AverageSessions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sessions: [],
+          dataSessions: [],
         }
         // const day = {
         //   1 : "L" ,
@@ -28,8 +28,9 @@ class AverageSessions extends React.Component {
 
             .then((res) => {
                 // console.log(res.data.data.sessions)
+                let UserInfos = res.data.data
                 this.setState(() => ({
-                  data: res.data.data.sessions,
+                  dataSessions: UserInfos.sessions,
                 }))
             })
     }
@@ -44,7 +45,7 @@ class AverageSessions extends React.Component {
             <LineChart
               width={258}
               height={263}
-              data={this.state.data}
+              data={this.state.dataSessions}
             > 
               <XAxis 
               dataKey= "day" 

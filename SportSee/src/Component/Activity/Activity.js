@@ -10,8 +10,7 @@ class Activity extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sessions: [],
-            day: "",
+            dataActivity: [],
         }
     }
 
@@ -20,9 +19,9 @@ class Activity extends React.Component {
 
             .then((res) => {
                 // console.log(res.data.data.sessions)
+                let UserInfos = res.data.data
                 this.setState(() => ({
-                    sessions: res.data.data.sessions,
-                    day : res.data.data.sessions.day,
+                    dataActivity: UserInfos.sessions,
                 }))
             })
     }
@@ -52,7 +51,7 @@ class Activity extends React.Component {
                     <BarChart
                         width={500}
                         height={300}
-                        data={this.state.sessions}
+                        data={this.state.dataActivity}
                         margin={{
                             top: 5,
                             right: 30,

@@ -28,13 +28,14 @@ class Home extends React.Component {
     axios.get("http://localhost:3001/user/18")
 
       .then((res) => {
-        // console.log(res.data.data.keyData.calorieCount)
+        // console.log(res.data.data.keyData)
+        let UserInfos = res.data.data
         this.setState(() => ({
-          firstName: res.data.data.userInfos.firstName,
-          calorieCount: res.data.data.keyData.calorieCount,
-          proteinCount: res.data.data.keyData.proteinCount,
-          carbohydrateCount: res.data.data.keyData.carbohydrateCount,
-          lipidCount: res.data.data.keyData.lipidCount,
+          firstName: UserInfos.userInfos.firstName,
+          calorieCount: UserInfos.keyData.calorieCount,
+          proteinCount: UserInfos.keyData.proteinCount,
+          carbohydrateCount: UserInfos.keyData.carbohydrateCount,
+          lipidCount: UserInfos.keyData.lipidCount,
         }))
       })
   }

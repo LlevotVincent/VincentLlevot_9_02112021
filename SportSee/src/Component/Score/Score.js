@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import './Score.css'
-import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
-
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+// import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 
 class ScorePerf extends React.Component {
 
@@ -10,40 +10,41 @@ class ScorePerf extends React.Component {
     super(props);
 
     this.state = {
-      data: [],
+      dataPerf: [],
+
     }
   }
 
   componentDidMount() {
     axios.get("http://localhost:3001/user/18")
 
-      .then((res) => {
-        console.log(res.data.data)
+      .then((response) => {
+        console.log(response.data.data)
+        let UserInfos = response.data.data
         this.setState(() => ({
-          data: res.data.data,
+          dataPerf: UserInfos,
         }))
       })
   }
 
-
-
   render() {
-
 
     return (
       <div className='PieChart-container'>
-        <ResponsiveContainer width="100%" height="100%">
-        <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={this.state.data}>
-          <RadialBar
-            minAngle={15}
-            // label={{ position: 'insideStart', fill: '#fff' }}
-            background
-            clockWise
+        <div className="PieChart-title">Score</div>
+        <PieChart width={400} height={400}>
+          <Pie
+            data={this.state.dataPerf}
             dataKey="score"
-          />
-          {/* <Legend iconSize={10} layout="vertical" verticalAlign="middle" /> */}
-        </RadialBarChart>
-      </ResponsiveContainer>
+            cx={200}
+            cy={200}
+            innerRadius={70}
+            outerRadius={90}
+            fill="#82ca9d"
+            label
+            />
+        </PieChart>
+
       </div>
     );
   }

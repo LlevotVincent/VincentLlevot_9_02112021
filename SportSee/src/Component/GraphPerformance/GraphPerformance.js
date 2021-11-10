@@ -8,7 +8,7 @@ class GraphPerformance extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      dataRadar: [],
     }
 
   }
@@ -18,8 +18,9 @@ class GraphPerformance extends React.Component {
 
       .then((res) => {
         // console.log(res.data.data.data)
+        let UserInfos = res.data.data
         this.setState(() => ({
-          data: res.data.data.data,
+          dataRadar: UserInfos.data,
         }))
       })
   }
@@ -32,7 +33,7 @@ class GraphPerformance extends React.Component {
     return (
       <div className='RadarChart-container'>
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart cx="50%" cy="50%" outerRadius="80%" data={this.state.data}>
+          <RadarChart cx="50%" cy="50%" outerRadius="80%" data={this.state.dataRadar}>
             <PolarGrid />
             <PolarAngleAxis dataKey="kind" />
             <PolarRadiusAxis  axisLine={false} tick={false} />
