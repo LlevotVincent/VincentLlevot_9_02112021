@@ -49,8 +49,8 @@ class Activity extends React.Component {
                 </div>
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart
-                        width={500}
-                        height={300}
+                        width='100%'
+                        height='100%'
                         data={this.state.dataActivity}
                         margin={{
                             top: 5,

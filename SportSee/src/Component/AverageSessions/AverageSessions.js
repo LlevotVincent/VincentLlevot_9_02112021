@@ -44,8 +44,8 @@ class AverageSessions extends React.Component {
         <h2>Durée moyenne des sessions</h2>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
-            width={258}
-            height={263}
+            width='100%'
+            height='100%'
             data={this.state.dataSessions}
           >
             <XAxis

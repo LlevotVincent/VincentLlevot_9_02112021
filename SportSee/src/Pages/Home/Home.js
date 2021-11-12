@@ -3,7 +3,7 @@ import axios from 'axios';
 import Activity from '../../Component/Activity/Activity';
 import Nutritiondata from '../../Component/Nutritiondata/Nutritiondata';
 import AverageSessions from '../../Component/AverageSessions/AverageSessions';
-import GraphPerformance from '../../Component/GraphPerformance/GraphPerformance';
+import RadarPerformance from '../../Component/RadarPerformance/RadarPerformance';
 import '../Home/Home.css'
 import calories from '../../Assets/calories-icon.svg'
 import protein from '../../Assets/protein-icon.svg'
@@ -60,7 +60,7 @@ class Home extends React.Component {
               <AverageSessions />
             </div>
             <div className='Performance'>
-              <GraphPerformance />
+              <RadarPerformance />
             </div>
             <div className='ScorePerf'>
               <ScorePerf />
