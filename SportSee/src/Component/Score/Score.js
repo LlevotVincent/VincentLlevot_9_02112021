@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './Score.css'
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
-// import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
+
 
 class ScorePerf extends React.Component {
 
@@ -27,24 +27,41 @@ class ScorePerf extends React.Component {
       })
   }
 
+
   render() {
+    const dataPerf = this.state.dataPerf.score
+
+    const data = [
+      { name: 'Group A', value: dataPerf },
+      { name: 'Group A', value: 1-dataPerf }
+    ];
+    const COLORS = ['#FF0000', '#FBFBFB'];
 
     return (
       <div className='PieChart-container'>
+        <ResponsiveContainer width='100%' height='100%' className="PieChart-container">
+          <PieChart >
+            <Pie
+              data={data}
+              cx='50%'
+              cy='50%'
+              innerRadius={90}
+              outerRadius={100}
+              startAngle={90}
+              endAngle={450}
+              cornerRadius={50}
+              dataKey="value"
+            >
+              {data.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} strokeWidth={0}/>
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
         <div className="PieChart-title">Score</div>
-        <PieChart width={400} height={400}>
-          <Pie
-            data={this.state.dataPerf}
-            dataKey="score"
-            cx={200}
-            cy={200}
-            innerRadius={70}
-            outerRadius={90}
-            fill="#82ca9d"
-            label
-            />
-        </PieChart>
-
+        <div className="UserPerf">{dataPerf * 100}%
+          <p>de votre activité</p>
+        </div>
       </div>
     );
   }

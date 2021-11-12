@@ -73,7 +73,6 @@ class Activity extends React.Component {
                         <Bar dataKey="calories" fill="#ff0000" barSize={7} radius={3}/>
                     </BarChart>
                 </ResponsiveContainer>
-
             </div>
         )
     }

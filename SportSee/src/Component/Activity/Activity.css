@@ -1,15 +1,12 @@
 .activity{
-
     width: 835px;
     height: 320px;
     background-color: rgba(251, 251, 251, 1);
-
 }
 
 .activity-title{
     display: flex;
     justify-content: space-between;
-
 }
 
 .activity-title>h3 {

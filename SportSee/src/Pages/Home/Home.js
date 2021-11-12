@@ -51,30 +51,34 @@ class Home extends React.Component {
           </div>
           <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
         </div>
-        <div className='grid'>
-          <div className='weeklyactivity'>
-            <Activity icon='' value='' text='' />
+        <div className='Grid-container'>
+          <div className='Grid-performance'>
+            <div className='weeklyactivity'>
+              <Activity icon='' value='' text='' />
+            </div>
+            <div className='TimeSessions'>
+              <AverageSessions />
+            </div>
+            <div className='Performance'>
+              <GraphPerformance />
+            </div>
+            <div className='ScorePerf'>
+              <ScorePerf />
+            </div>
           </div>
-          <div className='TimeSessions'>
-            <AverageSessions />
-          </div>
-          <div className='Performance'>
-            <GraphPerformance />
-          </div>
-          <div className='ScorePerf'>
-            <ScorePerf />
-          </div>
-          <div className='Nutri-calorie'>
-            <Nutritiondata logo={calories} value={this.state.calorieCount} unit='kCal' type='calorie' />
-          </div>
-          <div className='Nutri-protein'>
-            <Nutritiondata logo={protein} value={this.state.proteinCount} unit='g' type='protéïne' />
-          </div> 
-          <div className='Nutri-carbs'> 
-            <Nutritiondata logo={carbs} value={this.state.carbohydrateCount} unit='g' type='glucide' />
-          </div> 
-          <div className='Nutri-fat'>
-            <Nutritiondata logo={fat} value={this.state.lipidCount} unit='g' type='lipide' />
+          <div className='Grid-nutriscore'>
+            <div className='Nutri-calorie'>
+              <Nutritiondata logo={calories} value={this.state.calorieCount} unit='kCal' type='calorie' />
+            </div>
+            <div className='Nutri-protein'>
+              <Nutritiondata logo={protein} value={this.state.proteinCount} unit='g' type='protéïne' />
+            </div>
+            <div className='Nutri-carbs'>
+              <Nutritiondata logo={carbs} value={this.state.carbohydrateCount} unit='g' type='glucide' />
+            </div>
+            <div className='Nutri-fat'>
+              <Nutritiondata logo={fat} value={this.state.lipidCount} unit='g' type='lipide' />
+            </div>
           </div>
         </div>
       </div>
