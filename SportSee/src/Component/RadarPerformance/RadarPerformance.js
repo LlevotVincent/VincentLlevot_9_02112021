@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import './RadarPerformance.css'
+import Api from '../API';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 class RadarPerformance extends React.Component {
@@ -14,7 +14,7 @@ class RadarPerformance extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/user/18/performance")
+    Api.findPerformance()
 
       .then((res) => {
         // console.log(res.data.data.data)
@@ -29,6 +29,7 @@ class RadarPerformance extends React.Component {
 
   render() {
 
+    // ***custom Tick with kind***
     let tickinfo = this.state.tickinfo
     console.log(tickinfo)
     const Changetick = (item) => {
@@ -38,7 +39,7 @@ class RadarPerformance extends React.Component {
     return (
       <div className='RadarChart-container'>
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart cx="50%" cy="50%" outerRadius="60%"  data={this.state.dataRadar}>
+          <RadarChart cx="50%" cy="50%" outerRadius="60%" data={this.state.dataRadar}>
             <PolarGrid />
             <PolarAngleAxis
               dataKey="kind"

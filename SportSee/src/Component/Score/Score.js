@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import './Score.css'
+import Api from '../API';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
 
@@ -16,7 +16,7 @@ class ScorePerf extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/user/18")
+    Api.findUser()
 
       .then((response) => {
         console.log(response.data.data)

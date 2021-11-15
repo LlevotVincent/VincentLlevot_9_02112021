@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import './Activity.css'
+import Api from '../API';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
@@ -12,10 +12,11 @@ class Activity extends React.Component {
         this.state = {
             dataActivity: [],
         }
+
     }
 
     componentDidMount() {
-        axios.get("http://localhost:3001/user/18/activity")
+        Api.findActivity()
 
             .then((res) => {
                 // console.log(res.data.data.sessions)
@@ -27,20 +28,31 @@ class Activity extends React.Component {
     }
 
 
-    // renderLegend = (props) => {
-    //     const { payload } = props;
-    //     if(datakey= "kilogram"){
-    //         value= "Poids (kg)"
-    //     }
-    //     else {
-    //         value= "Calories brûlées (kCal)"
-    //     }
-      
-    //     return (
-    //         <Legend content={value} />
-    //     );
-    //   }
+
     render() {
+
+        //*change Abscissa name */
+        const FormatTick = (value) => {
+            console.log(value)
+            // return value.substring(value.length - 1 ,value.length)
+        }
+        //*change legend name */
+        const FormatLegend = (item) => {
+            console.log(item)
+            return item === "kilogram" ? "Poids (kg)" : "Calories brûlées (kCal)";
+        }
+        //*change tooltip design */
+        const CustomTooltip = ({ active, payload}) => {
+            if (active && payload && payload.length) {
+                return (
+                    <div className="barChart-custom-tooltip">
+                        <p className="label">{`${payload[0].value} kg`}</p>
+                        <p className="label">{`${payload[1].value} kCal`}</p>
+                    </div>
+                );
+            }
+            return null;
+        };
 
         return (
             <div className='activity'>
@@ -58,19 +70,37 @@ class Activity extends React.Component {
                             left: 20,
                             bottom: 5,
                         }}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="day" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend  
-                            align="right"
-                            verticalAlign="top" 
-                            iconType="circle" 
-                            wrapperStyle={{paddingTop: 23 , paddingBottom:30}}
-                            // content={renderLegend}
+                        <CartesianGrid
+                            vertical={false}
+                            strokeDasharray="2 1"
                         />
-                        <Bar dataKey="kilogram" fill="#000000" barSize={7} radius={3}/>
-                        <Bar dataKey="calories" fill="#ff0000" barSize={7} radius={3}/>
+                        <XAxis
+                            stroke="#9B9EAC"
+                            dataKey="day"
+                            tickLine={false}
+                            tickFormatter={FormatTick}
+  
+                        />
+                        <YAxis
+                            orientation="right"
+                            stroke="#9B9EAC"
+                            axisLine={false}
+                            tickCount={3}
+                            tickLine={false}
+                            tickMargin={10}
+                        />
+                        <Tooltip
+                            content={<CustomTooltip />}
+                        />
+                        <Legend
+                            align="right"
+                            verticalAlign="top"
+                            iconType="circle"
+                            wrapperStyle={{ paddingTop: 20, paddingBottom: 40 }}
+                            formatter={FormatLegend}
+                        />
+                        <Bar dataKey="kilogram" fill="#000000" barSize={7} radius={[3, 3, 0, 0]} />
+                        <Bar dataKey="calories" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

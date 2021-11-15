@@ -15,3 +15,16 @@
     position: absolute;
     margin-top: 23px;
 }
+
+.barChart-custom-tooltip{
+    background-color: #E60000;
+    width: 3rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 7px;
+    color: white;
+}
+

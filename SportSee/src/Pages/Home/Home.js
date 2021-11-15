@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import Api from '../../Component/API';
 import Activity from '../../Component/Activity/Activity';
 import Nutritiondata from '../../Component/Nutritiondata/Nutritiondata';
 import AverageSessions from '../../Component/AverageSessions/AverageSessions';
@@ -25,8 +25,8 @@ class Home extends React.Component {
     }
   }
   componentDidMount() {
-    axios.get("http://localhost:3001/user/18")
 
+    Api.findUser()
       .then((res) => {
         // console.log(res.data.data.keyData)
         let UserInfos = res.data.data
