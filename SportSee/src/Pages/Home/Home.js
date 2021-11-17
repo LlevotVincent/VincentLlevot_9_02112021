@@ -1,15 +1,16 @@
 import React from 'react';
 import Api from '../../Component/API';
-import Activity from '../../Component/Activity/Activity';
+import Activity from '../../Component/BarChart/Activity';
 import Nutritiondata from '../../Component/Nutritiondata/Nutritiondata';
-import AverageSessions from '../../Component/AverageSessions/AverageSessions';
-import RadarPerformance from '../../Component/RadarPerformance/RadarPerformance';
+import AverageSessions from '../../Component/LineChart/AverageSessions';
+import RadarPerformance from '../../Component/RadarChart/RadarPerformance';
+import ScorePerf from '../../Component/PieChart/Score';
 import '../Home/Home.css'
 import calories from '../../Assets/calories-icon.svg'
 import protein from '../../Assets/protein-icon.svg'
 import carbs from '../../Assets/carbs-icon.svg'
 import fat from '../../Assets/fat-icon.svg'
-import ScorePerf from '../../Component/Score/Score';
+
 
 
 
@@ -54,7 +55,7 @@ class Home extends React.Component {
         <div className='Grid-container'>
           <div className='Grid-performance'>
             <div className='weeklyactivity'>
-              <Activity icon='' value='' text='' />
+              <Activity />
             </div>
             <div className='TimeSessions'>
               <AverageSessions />
