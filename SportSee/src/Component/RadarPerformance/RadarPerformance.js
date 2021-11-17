@@ -3,6 +3,8 @@ import './RadarPerformance.css'
 import Api from '../API';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
+
+
 class RadarPerformance extends React.Component {
 
   constructor(props) {
@@ -30,10 +32,9 @@ class RadarPerformance extends React.Component {
   render() {
 
     // ***custom Tick with kind***
-    let tickinfo = this.state.tickinfo
-    console.log(tickinfo)
+    const stat = ["Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"]
     const Changetick = (item) => {
-      return tickinfo[item]
+      return stat[item - 1]
     }
 
     return (
@@ -47,11 +48,12 @@ class RadarPerformance extends React.Component {
               stroke="white"
               fontSize={12}
               tickLine={false} 
+
             />
             <PolarRadiusAxis 
-            axisLine={false} 
-            tick={false} 
-            tickCount={6}
+              axisLine={false} 
+              tick={false} 
+              tickCount={6}
             />
             <Radar name="18" dataKey="value" fill="rgba(255, 1, 1, 0.7)" fillOpacity={0.6} />
           </RadarChart>

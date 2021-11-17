@@ -1,9 +1,7 @@
 import React from 'react';
 import './AverageSessions.css'
 import Api from '../API';
-import { LineChart, Line, XAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid } from 'recharts';
-
-
+import { LineChart, Line, XAxis,YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 class AverageSessions extends React.Component {
 
@@ -12,8 +10,6 @@ class AverageSessions extends React.Component {
     this.state = {
       dataSessions: [],
     }
-
-
   }
 
   componentDidMount() {
@@ -29,17 +25,15 @@ class AverageSessions extends React.Component {
       })
   }
 
-
-
   render() {
 
-
-    // ***custom Tick***
+    //*change Abscissa name */
     const day = ["L", "M", "M", "J", "V", "S", "D"]
     const Changetick = (item) => {
       return day[item - 1]
     }
-    const CustomTooltip = ({ active, payload, label }) => {
+    //*change tooltip design */
+    const CustomTooltip = ({ active, payload}) => {
       if (active && payload && payload.length) {
         return (
           <div className="lineChart-custom-tooltip">
@@ -53,28 +47,38 @@ class AverageSessions extends React.Component {
     return (
       <div className="lineChart-container">
         <h2>Durée moyenne des sessions</h2>
-        <ResponsiveContainer width="100%" height="100%" aspect={1.2}>
+        <ResponsiveContainer width="100%" height="100%" >
           <LineChart
             width='100%'
             data={this.state.dataSessions}
+            margin={{top: 20, right: 10, left: -50, bottom: 20}}
           >
+            <YAxis 
+            domain={['dataMin - 20','dataMax +30']} 
+            axisLine={false} 
+            tick={false}
+            dataKey="sessionLength"
+            type={'number'}
+            />
             <XAxis
-              domain={['dataMin - 50', 'dataMax + 50']}
+              domain={['dataMin - 10','dataMax + 10']} 
               dataKey="day"
               axisLine={false}
               tickLine={false}
               stroke="#fff"
               tickFormatter={Changetick}
-              tickMargin={-10}
             />
-            <Tooltip cursor={false} content={<CustomTooltip />} />
-
+            <Tooltip 
+            cursor={false} 
+            content={<CustomTooltip/>} 
+            />
             <Line
               type="monotone"
               dataKey="sessionLength"
               stroke="#fff"
               strokeWidth={2}
               dot={false}
+              type='natural'
             />
           </LineChart>
         </ResponsiveContainer>

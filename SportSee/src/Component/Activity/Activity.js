@@ -1,8 +1,8 @@
 import React from 'react';
-import './Activity.css'
+import './Activity.css';
+import PropTypes from 'prop-types'
 import Api from '../API';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
 
 
 class Activity extends React.Component {
@@ -12,12 +12,10 @@ class Activity extends React.Component {
         this.state = {
             dataActivity: [],
         }
-
     }
 
     componentDidMount() {
         Api.findActivity()
-
             .then((res) => {
                 // console.log(res.data.data.sessions)
                 let UserInfos = res.data.data
@@ -32,17 +30,19 @@ class Activity extends React.Component {
     render() {
 
         //*change Abscissa name */
-        const FormatTick = (value) => {
-            console.log(value)
-            // return value.substring(value.length - 1 ,value.length)
-        }
+        const formatXAxis = (tickItem) => {
+            if (typeof tickItem === 'string'){
+            return tickItem.substring(tickItem.length - 2, tickItem.length)
+        }}
         //*change legend name */
-        const FormatLegend = (item) => {
-            console.log(item)
-            return item === "kilogram" ? "Poids (kg)" : "Calories brûlées (kCal)";
+        const FormatLegend = (value) => {
+            const style = {color: "#74798C", fontSize: "14px"}
+            if(value ==="kilogram")
+            {value = "Poids (kg)"} else {value = "Calories brûlées (KCal)"}
+            return <span style={style}>{value}</span>
         }
         //*change tooltip design */
-        const CustomTooltip = ({ active, payload}) => {
+        const CustomTooltip = ({ active, payload }) => {
             if (active && payload && payload.length) {
                 return (
                     <div className="barChart-custom-tooltip">
@@ -64,12 +64,9 @@ class Activity extends React.Component {
                         width='100%'
                         height='100%'
                         data={this.state.dataActivity}
-                        margin={{
-                            top: 5,
-                            right: 30,
-                            left: 20,
-                            bottom: 5,
-                        }}>
+                        margin={{top: 5, right: 30, left: 20, bottom: 5}}
+                        barGap={8}
+                    >
                         <CartesianGrid
                             vertical={false}
                             strokeDasharray="2 1"
@@ -78,8 +75,8 @@ class Activity extends React.Component {
                             stroke="#9B9EAC"
                             dataKey="day"
                             tickLine={false}
-                            tickFormatter={FormatTick}
-  
+                            tickFormatter={formatXAxis}
+                        
                         />
                         <YAxis
                             orientation="right"
@@ -107,4 +104,12 @@ class Activity extends React.Component {
         )
     }
 }
+
+// Activity.propTypes = {
+//    
+//   *** Call API with URL
+//     urlBase: PropTypes.string.isRequired,
+//   *** User ID
+//     userId: PropTypes.number.isRequired,
+// }
 export default Activity

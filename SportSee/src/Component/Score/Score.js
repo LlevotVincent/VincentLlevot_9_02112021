@@ -1,7 +1,7 @@
 import React from 'react';
 import './Score.css'
 import Api from '../API';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
 
 class ScorePerf extends React.Component {
@@ -11,7 +11,6 @@ class ScorePerf extends React.Component {
 
     this.state = {
       dataPerf: [],
-
     }
   }
 
@@ -19,7 +18,7 @@ class ScorePerf extends React.Component {
     Api.findUser()
 
       .then((response) => {
-        console.log(response.data.data)
+        // console.log(response.data.data)
         let UserInfos = response.data.data
         this.setState(() => ({
           dataPerf: UserInfos,
@@ -29,13 +28,17 @@ class ScorePerf extends React.Component {
 
 
   render() {
-    const dataPerf = this.state.dataPerf.score
+    let dataPerf = this.state.dataPerf.todayScore
+    let ErrorData = this.state.dataPerf.score
 
+    if (dataPerf === undefined){
+      dataPerf = ErrorData
+    }
+  
     const data = [
-      { name: 'Group A', value: dataPerf },
-      { name: 'Group A', value: 1-dataPerf }
+      { name: 'Group A', value: dataPerf, fill:'red'},
+      { name: 'Group A', value: 1-dataPerf, fill: 'transparent',strokeWidth: 0 }
     ];
-    const COLORS = ['#FF0000', '#FBFBFB'];
 
     return (
       <div className='PieChart-container'>
@@ -52,10 +55,7 @@ class ScorePerf extends React.Component {
               cornerRadius={50}
               dataKey="value"
             >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} strokeWidth={0}/>
-              ))}
-            </Pie>
+            </Pie> 
           </PieChart>
         </ResponsiveContainer>
         <div className="PieChart-title">Score</div>

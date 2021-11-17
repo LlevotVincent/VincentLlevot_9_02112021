@@ -13,13 +13,27 @@
     font-weight: 500;
 }
 
+/* .circlebackground{
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+} */
 .UserPerf{
     position: absolute;
-    top: 32%;
-    left: 32%;
-    width: 95px;
+    top: 16%;
+    left: 16%;
+    width: 180px;
+    height: 180px;
     font-weight: 700;
     font-size: 26px;
+    background-color: white;
+    border-radius: 50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .UserPerf>p {
     font-size: 16px;
