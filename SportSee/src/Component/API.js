@@ -1,23 +1,22 @@
 import axios from 'axios';
 
 //*change User ID */
-const User = 18
+const User = 12
 const UrlBase = "http://localhost:3001/user/"
 
-function findUser() {
-    return axios.get(UrlBase + User)
+ const findUser = async() => {
+    return await axios.get(UrlBase + User)
 }
 
-function findActivity() {
-    return axios.get(UrlBase + User + "/activity")
+ const findActivity = async() => {
+    return await axios.get(UrlBase + User + "/activity")
 }
 
-function findAverageSessions() {
-    return axios.get(UrlBase + User + "/average-sessions")
+const findAverageSessions = async() => {
+    return await axios.get(UrlBase + User + "/average-sessions")
 }
-
-function findPerformance() {
-    return axios.get(UrlBase + User + "/performance")
+const findPerformance = async() => {
+    return await axios.get(UrlBase + User + "/performance")
 }
 
 

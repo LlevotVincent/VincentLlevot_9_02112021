@@ -78,7 +78,7 @@ class AverageSessions extends React.Component {
               stroke="#fff"
               strokeWidth={2}
               dot={false}
-              type='natural'
+              type="natural"
             />
           </LineChart>
         </ResponsiveContainer>

@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import '../Nutritiondata/Nutritiondata.css'
 
 
@@ -10,16 +9,6 @@ class Nutritiondata extends React.Component {
             firstName: "",
         }
     }
-    // componentDidMount() {
-    //     axios.get("http://localhost:3001/user/18")
-
-    //         .then((res) => {
-    //             // console.log(res.data.data.keyData.firstName)
-    //             this.setState(() => ({
-    //                 firstName: res.data.data.keyData.firstName,
-    //             }))
-    //         })
-    // }
 
     render() {
         return (

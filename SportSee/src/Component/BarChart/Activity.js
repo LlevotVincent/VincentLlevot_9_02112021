@@ -106,10 +106,10 @@ class Activity extends React.Component {
 }
 
 // Activity.propTypes = {
-//    
-//   *** Call API with URL
+   
+// //   *** Call API with URL
 //     urlBase: PropTypes.string.isRequired,
-//   *** User ID
+// //   *** User ID
 //     userId: PropTypes.number.isRequired,
 // }
 export default Activity
