@@ -78,7 +78,6 @@ class AverageSessions extends React.Component {
               content={<CustomTooltip />}
             />
             <Line
-              type="monotone"
               dataKey="sessionLength"
               stroke="#fff"
               strokeWidth={2}

@@ -17,7 +17,6 @@ class RadarPerformance extends React.Component {
 
   componentDidMount() {
     Api.findPerformance()
-
       .then((res) => {
         // console.log(res.data.data.data)
         let UserInfos = res.data.data
@@ -49,17 +48,22 @@ class RadarPerformance extends React.Component {
             <PolarAngleAxis
               dataKey="kind"
               tickFormatter={Changetick}
-              stroke="white"
+              stroke="#FFFFFF"
               fontSize={12}
               tickLine={false} 
 
             />
             <PolarRadiusAxis 
+              domain= {[0, 250]}
               axisLine={false} 
               tick={false} 
               tickCount={6}
             />
-            <Radar name="18" dataKey="value" fill="rgba(255, 1, 1, 0.7)" fillOpacity={0.6} />
+            <Radar 
+              dataKey="value" 
+              fill="rgba(255, 1, 1, 0.7)" 
+              fillOpacity={0.6} 
+            />
           </RadarChart>
         </ResponsiveContainer>
       </div>

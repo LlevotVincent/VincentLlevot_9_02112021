@@ -57,15 +57,10 @@ class Home extends React.Component {
             <div className='weeklyactivity'>
               <Activity />
             </div>
-            <div className='TimeSessions'>
               <AverageSessions />
-            </div>
-            <div className='Performance'>
               <RadarPerformance />
-            </div>
-            <div className='ScorePerf'>
               <ScorePerf />
-            </div>
+
           </div>
           <div className='Grid-nutriscore'>
             <div className='Nutri-calorie'>
@@ -86,5 +81,11 @@ class Home extends React.Component {
     )
   }
 }
+// findUser.propTypes = {
 
+// //   *** Call API with URL
+//     UrlBase: PropTypes.string.isRequired,
+// //   *** User ID
+//     User: PropTypes.number.isRequired,
+// }
 export default Home;
