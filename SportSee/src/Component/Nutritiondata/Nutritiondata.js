@@ -22,4 +22,18 @@ class Nutritiondata extends React.Component {
         )
     }
 }
+
+Nutritiondata.propTypes = {
+    /**
+     * value from Api
+     */
+    value: PropTypes.number.isRequired,
+    /**
+     * unit and type from home page
+     */ 
+     unit: PropTypes.string.isRequired,
+
+     type: PropTypes.string.isRequired
+}
+
 export default Nutritiondata

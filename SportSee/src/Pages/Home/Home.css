@@ -31,7 +31,7 @@ column-gap: 63px;
 
 .Grid-performance{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 258px);
     grid-template-rows: 320px 263px;
     row-gap: 30px;
     column-gap: 30px;
