@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Nutritiondata/Nutritiondata.css'
-
+import PropTypes from 'prop-types'
 
 class Nutritiondata extends React.Component {
     constructor(props) {
@@ -11,6 +11,7 @@ class Nutritiondata extends React.Component {
     }
 
     render() {
+
         return (
             <div className='Nutritiondata'>
                 <img className='Nutrilogo' src={this.props.logo} alt="logo" />
@@ -27,13 +28,13 @@ Nutritiondata.propTypes = {
     /**
      * value from Api
      */
-    value: PropTypes.number.isRequired,
+    value: PropTypes.number,
     /**
-     * unit and type from home page
+     * unit, type, logo from home page
      */ 
-     unit: PropTypes.string.isRequired,
-
-     type: PropTypes.string.isRequired
+    unit: PropTypes.string,
+    type: PropTypes.string,
+    logo: PropTypes.string,
 }
 
 export default Nutritiondata

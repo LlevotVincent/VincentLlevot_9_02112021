@@ -19,10 +19,10 @@ class Home extends React.Component {
     super(props)
     this.state = {
       firstName: '',
-      calorieCount: '',
-      proteinCount: '',
-      carbohydrateCount: '',
-      lipidCount: '',
+      calorieCount: 0,
+      proteinCount: 0,
+      carbohydrateCount: 0,
+      lipidCount: 0,
     }
   }
   componentDidMount() {
@@ -86,11 +86,5 @@ class Home extends React.Component {
     )
   }
 }
-// findUser.propTypes = {
 
-// //   *** Call API with URL
-//     UrlBase: PropTypes.string.isRequired,
-// //   *** User ID
-//     User: PropTypes.number.isRequired,
-// }
 export default Home;
