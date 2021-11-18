@@ -1,7 +1,7 @@
 import React from 'react';
 import './AverageSessions.css'
 import Api from '../API';
-import { LineChart, Line, XAxis,YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 class AverageSessions extends React.Component {
 
@@ -13,9 +13,7 @@ class AverageSessions extends React.Component {
   }
 
   componentDidMount() {
-
     Api.findAverageSessions()
-
       .then((res) => {
         // console.log(res.data.data.sessions)
         let UserInfos = res.data.data
@@ -26,14 +24,21 @@ class AverageSessions extends React.Component {
   }
 
   render() {
-
-    //*change Abscissa name */
-    const day = ["L", "M", "M", "J", "V", "S", "D"]
-    const Changetick = (item) => {
-      return day[item - 1]
+    /***********************
+    Change Abscissa name
+    * @param {objet} Abscissa tick from data
+    * @return {string} const day on abscissa
+    ***********************/
+      const day = ["L", "M", "M", "J", "V", "S", "D"]
+      const Changetick = (item) => {
+       return day[item - 1]
     }
-    //*change tooltip design */
-    const CustomTooltip = ({ active, payload}) => {
+    /***********************
+    change tooltip design *
+    * @param {object} value from payload
+    * @return {string} new style for tooltip
+    ***********************/
+    const CustomTooltip = ({ active, payload }) => {
       if (active && payload && payload.length) {
         return (
           <div className="lineChart-custom-tooltip">
@@ -51,26 +56,26 @@ class AverageSessions extends React.Component {
           <LineChart
             width='100%'
             data={this.state.dataSessions}
-            margin={{top: 20, right: 10, left: -50, bottom: 20}}
+            margin={{ top: 20, right: 10, left: -50, bottom: 20 }}
           >
-            <YAxis 
-            domain={['dataMin - 20','dataMax +30']} 
-            axisLine={false} 
-            tick={false}
-            dataKey="sessionLength"
-            type={'number'}
+            <YAxis
+              domain={['dataMin - 20', 'dataMax +30']}
+              axisLine={false}
+              tick={false}
+              dataKey="sessionLength"
+              type={'number'}
             />
             <XAxis
-              domain={['dataMin - 10','dataMax + 10']} 
+              domain={['dataMin - 10', 'dataMax + 10']}
               dataKey="day"
               axisLine={false}
               tickLine={false}
               stroke="#fff"
               tickFormatter={Changetick}
             />
-            <Tooltip 
-            cursor={false} 
-            content={<CustomTooltip/>} 
+            <Tooltip
+              cursor={false}
+              content={<CustomTooltip />}
             />
             <Line
               type="monotone"

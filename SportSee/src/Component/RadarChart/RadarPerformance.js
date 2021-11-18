@@ -31,7 +31,11 @@ class RadarPerformance extends React.Component {
 
   render() {
 
-    // ***custom Tick with kind***
+    /***********************
+    Change tick for french trad
+    * @param {objet}  new const created
+    * @return {string} const stat on tick
+    ***********************/
     const stat = ["Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"]
     const Changetick = (item) => {
       return stat[item - 1]
