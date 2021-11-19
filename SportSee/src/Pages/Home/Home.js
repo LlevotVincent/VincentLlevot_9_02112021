@@ -1,5 +1,5 @@
 import React from 'react';
-import Api from '../../Component/API';
+import callApi from '../../Component/API';
 import Activity from '../../Component/BarChart/Activity';
 import Nutritiondata from '../../Component/Nutritiondata/Nutritiondata';
 import AverageSessions from '../../Component/LineChart/AverageSessions';
@@ -27,7 +27,7 @@ class Home extends React.Component {
   }
   componentDidMount() {
 
-    Api.findUser()
+    callApi.findUser()
       .then((res) => {
         // console.log(res.data.data.keyData)
         let UserInfos = res.data.data

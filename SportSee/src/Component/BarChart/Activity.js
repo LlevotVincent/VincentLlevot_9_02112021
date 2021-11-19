@@ -1,6 +1,6 @@
 import React from 'react';
 import './Activity.css';
-import Api from '../API';
+import callApi from '../API';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
@@ -14,7 +14,7 @@ class Activity extends React.Component {
     }
 
     componentDidMount() {
-        Api.findActivity()
+        callApi.findActivity()
             .then((res) => {
                 // console.log(res.data.data.sessions)
                 let UserInfos = res.data.data

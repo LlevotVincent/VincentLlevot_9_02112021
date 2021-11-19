@@ -1,6 +1,6 @@
 import React from 'react';
 import './AverageSessions.css'
-import Api from '../API';
+import callApi from '../API';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 class AverageSessions extends React.Component {
@@ -13,7 +13,7 @@ class AverageSessions extends React.Component {
   }
 
   componentDidMount() {
-    Api.findAverageSessions()
+    callApi.findAverageSessions()
       .then((res) => {
         // console.log(res.data.data.sessions)
         let UserInfos = res.data.data

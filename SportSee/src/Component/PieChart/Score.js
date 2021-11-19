@@ -1,6 +1,6 @@
 import React from 'react';
 import './Score.css'
-import Api from '../API';
+import callApi from '../API';
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
 
@@ -15,7 +15,7 @@ class ScorePerf extends React.Component {
   }
 
   componentDidMount() {
-    Api.findUser()
+    callApi.findUser()
       .then((response) => {
         // console.log(response.data.data)
         let UserInfos = response.data.data

@@ -1,6 +1,6 @@
 import React from 'react';
 import './RadarPerformance.css'
-import Api from '../API';
+import callApi from '../API';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 
@@ -16,7 +16,7 @@ class RadarPerformance extends React.Component {
   }
 
   componentDidMount() {
-    Api.findPerformance()
+    callApi.findPerformance()
       .then((res) => {
         // console.log(res.data.data.data)
         let UserInfos = res.data.data

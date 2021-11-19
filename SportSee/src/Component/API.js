@@ -20,12 +20,13 @@ const findPerformance = () => {
     return  axios.get(UrlBase + User + "/performance")
 }
 
-
-export default {
+const callApi ={
     findUser,
     findActivity,
     findAverageSessions,
     findPerformance
-};
+}
+
+export default callApi
 
 
