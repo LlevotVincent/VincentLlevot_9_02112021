@@ -25,7 +25,7 @@ class AverageSessions extends React.Component {
 
   render() {
   /**
-    Change Abscissa name
+    *Change Abscissa name
     * @param {objet} Abscissa tick from data
     * @return {string} const day on abscissa
   */
