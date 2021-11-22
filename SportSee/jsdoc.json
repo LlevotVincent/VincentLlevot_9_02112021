@@ -1,6 +1,6 @@
 {
     "opts": {
-        "destination": "./doc/",
+        "destination": "doc/",
         "recurse": true
     },
     "source": {
@@ -9,7 +9,7 @@
         "excludePattern": "(node_modules/|doc)"
     },
     "plugins": [
-        "plugins/markdown" 
+        "plugins/markdown"
     ],
     "templates": {
         "cleverLinks": true,

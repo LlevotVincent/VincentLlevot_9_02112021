@@ -23,6 +23,7 @@ class Home extends React.Component {
       proteinCount: 0,
       carbohydrateCount: 0,
       lipidCount: 0,
+      errorMessage : false,
     }
   }
   componentDidMount() {
@@ -39,12 +40,21 @@ class Home extends React.Component {
           lipidCount: UserInfos.keyData.lipidCount,
         }))
       })
+      .catch(() => {                
+        this.setState({
+          errorMessage: true,
+        })
+
+    })
   }
 
   render() {
 
 
     return (
+      this.state.errorMessage ? (
+        <div>error, This UserID is unavailable</div>
+      ) : (
       <div className="Home">
         <div className='User-identifier'>
           <div className='User'>
@@ -83,7 +93,8 @@ class Home extends React.Component {
           </div>
         </div>
       </div>
-    )
+    ))
+
   }
 }
 

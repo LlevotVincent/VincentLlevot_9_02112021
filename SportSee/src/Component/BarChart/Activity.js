@@ -62,6 +62,7 @@ class Activity extends React.Component {
             return null;
         };
 
+
         return (
             <div className='activity'>
                 <div className='activity-title'>
