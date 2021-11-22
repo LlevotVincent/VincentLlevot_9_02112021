@@ -4,7 +4,7 @@
         "recurse": true
     },
     "source": {
-        "include": ["./src"],
+        "include": ["src/Component" , "src/Pages"],
         "includePattern": "\\.(jsx|js|ts|tsx)$",
         "excludePattern": "(node_modules/|doc)"
     },

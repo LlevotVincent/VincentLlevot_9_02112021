@@ -3,6 +3,7 @@ SportSee : a sport website application
 # Prerequisite
     Install yarn with npm install -g yarn.
     Clone project from GitHub.
+    
 
 # Getting Started with Create React App
 This project was bootstrapped with Create React App.

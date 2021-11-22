@@ -1,3 +1,7 @@
+# Prerequisite
+    Install yarn with npm install -g yarn.
+    Clone project from GitHub.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
