@@ -5,8 +5,8 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 
 class AverageSessions extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       dataSessions: [],
     }
@@ -24,20 +24,20 @@ class AverageSessions extends React.Component {
   }
 
   render() {
-    /***********************
+  /**
     Change Abscissa name
     * @param {objet} Abscissa tick from data
     * @return {string} const day on abscissa
-    ***********************/
+  */
       const day = ["L", "M", "M", "J", "V", "S", "D"]
       const Changetick = (item) => {
        return day[item - 1]
     }
-    /***********************
-    change tooltip design *
+  /**
+    *change tooltip design *
     * @param {object} value from payload
     * @return {string} new style for tooltip
-    ***********************/
+  */
     const CustomTooltip = ({ active, payload }) => {
       if (active && payload && payload.length) {
         return (

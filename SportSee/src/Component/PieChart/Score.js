@@ -6,9 +6,8 @@ import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
 class ScorePerf extends React.Component {
 
-  constructor(props) {
-    super(props);
-
+  constructor() {
+    super();
     this.state = {
       dataPerf: [],
     }
@@ -27,19 +26,19 @@ class ScorePerf extends React.Component {
 
 
   render() {
-    /***********************
-    Use to get infromation from API
-    To solve difference from data from the same information from different user
-    ***********************/
+  /**
+    *Use to get infromation from API
+    *To solve difference from data from the same information from different user
+  */
     let dataPerf = this.state.dataPerf.todayScore
     let ErrorData = this.state.dataPerf.score
     if (dataPerf === undefined) {
       dataPerf = ErrorData
     }
 
-    /***********************
-    Use to define value and fill for data  .
-    ***********************/
+  /**
+    *Use to define value and fill for data  .
+  */
     const data = [
       { name: 'Group A', value: dataPerf, fill: 'red' },
       { name: 'Group A', value: 1 - dataPerf, fill: 'transparent', strokeWidth: 0 }

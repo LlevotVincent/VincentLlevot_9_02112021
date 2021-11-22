@@ -3,8 +3,8 @@ import '../Nutritiondata/Nutritiondata.css'
 import PropTypes from 'prop-types'
 
 class Nutritiondata extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             firstName: "",
         }

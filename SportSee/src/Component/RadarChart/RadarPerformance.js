@@ -7,8 +7,8 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 
 class RadarPerformance extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       dataRadar: [],
       tickinfo: {}
@@ -30,11 +30,11 @@ class RadarPerformance extends React.Component {
 
   render() {
 
-    /***********************
-    Change tick for french trad
+  /**
+    *Change tick for french trad
     * @param {objet}  new const created
     * @return {string} const stat on tick
-    ***********************/
+  */
     const stat = ["Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"]
     const Changetick = (item) => {
       return stat[item - 1]
@@ -54,7 +54,6 @@ class RadarPerformance extends React.Component {
 
             />
             <PolarRadiusAxis 
-              domain= {[0, 250]}
               axisLine={false} 
               tick={false} 
               tickCount={6}
