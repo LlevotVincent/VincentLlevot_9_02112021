@@ -2,6 +2,11 @@ import React from 'react';
 import '../Nutritiondata/Nutritiondata.css'
 import PropTypes from 'prop-types'
 
+/**
+ * Component for user nutritional value
+ * @component 
+ * @return {component}
+ */
 class Nutritiondata extends React.Component {
     constructor() {
         super()

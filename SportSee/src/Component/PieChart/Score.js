@@ -4,6 +4,11 @@ import callApi from '../API';
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
 
+/**
+ * Component for user's progress activity
+ * @component 
+ * @return {component}
+ */
 class ScorePerf extends React.Component {
 
   constructor() {

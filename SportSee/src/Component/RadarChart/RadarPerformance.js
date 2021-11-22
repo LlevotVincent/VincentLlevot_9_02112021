@@ -4,7 +4,11 @@ import callApi from '../API';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 
-
+/**
+ * Component for user's performance
+ * @component 
+ * @return {component}
+ */
 class RadarPerformance extends React.Component {
 
   constructor() {

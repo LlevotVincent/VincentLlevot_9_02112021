@@ -3,7 +3,11 @@ import './Activity.css';
 import callApi from '../API';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-
+/**
+ * Component for user activity
+ * @component 
+ * @return {component}
+ */
 class Activity extends React.Component {
 
     constructor() {

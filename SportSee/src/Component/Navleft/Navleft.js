@@ -6,6 +6,11 @@ import iconbodybuilding from '../../Assets/bodybuilding-icon.svg'
 import '../Navleft/Navleft.css'
 import { NavLink } from 'react-router-dom'
 
+/**
+ * Component for navigation bar on left side
+ * @component 
+ * @return {component}
+ */
 class Navleft extends React.Component {
     render() {
         return (

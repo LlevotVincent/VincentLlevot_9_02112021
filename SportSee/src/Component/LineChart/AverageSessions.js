@@ -3,6 +3,11 @@ import './AverageSessions.css'
 import callApi from '../API';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
+/**
+ * Component for user's time sessions
+ * @component 
+ * @return {component}
+ */
 class AverageSessions extends React.Component {
 
   constructor() {
