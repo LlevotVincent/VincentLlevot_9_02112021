@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Nutritiondata/Nutritiondata.js</title>
+    <title>JSDoc: Source: Navleft/Navleft.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Nutritiondata/Nutritiondata.js</h1>
+    <h1 class="page-title">Source: Navleft/Navleft.js</h1>
 
     
 
@@ -27,50 +27,40 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import '../Nutritiondata/Nutritiondata.css'
-import PropTypes from 'prop-types'
+import iconyoga from '../../Assets/yoga-icon.svg'
+import iconswimming from '../../Assets/swimming-icon.svg'
+import iconcycling from '../../Assets/cycling-icon.svg'
+import iconbodybuilding from '../../Assets/bodybuilding-icon.svg'
+import '../Navleft/Navleft.css'
+import { NavLink } from 'react-router-dom'
 
 /**
- * Component for user nutritional value
+ * Component for navigation bar on left side
  * @component 
  * @return {component}
  */
-class Nutritiondata extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            firstName: "",
-        }
-    }
-
+class Navleft extends React.Component {
     render() {
-
         return (
-            &lt;div className='Nutritiondata'>
-                &lt;img className='Nutrilogo' src={this.props.logo} alt="logo" />
-                &lt;div className='Nutrisscore'>
-                    &lt;div className='Nutri-value'>{this.props.value}{this.props.unit}&lt;/div>
-                    &lt;div className='Nutri-unit'>{this.props.type}&lt;/div>
-                &lt;/div>
-            &lt;/div>
+            &lt;nav className='navleft'>
+                &lt;NavLink to='/'>
+                    &lt;img className='sporticon' src={iconyoga} alt="icône de Yoga">&lt;/img>
+                &lt;/NavLink>
+                &lt;NavLink to='/'>
+                    &lt;img className='sporticon' src={iconswimming} alt="icône de natation">&lt;/img>
+                &lt;/NavLink>
+                &lt;NavLink to='/'>
+                    &lt;img className='sporticon' src={iconcycling} alt="icône de vélo">&lt;/img>
+                &lt;/NavLink>
+                &lt;NavLink to='/'>
+                    &lt;img className='sporticon' src={iconbodybuilding} alt="icône d'altère">&lt;/img>
+                &lt;/NavLink>
+                &lt;p className='copyright'>copyright, SportSee 2020&lt;/p>
+            &lt;/nav>
         )
     }
 }
-
-Nutritiondata.propTypes = {
-    /**
-     * value from Api
-     */
-    value: PropTypes.number,
-    /**
-     * unit, type, logo from home page
-     */ 
-    unit: PropTypes.string,
-    type: PropTypes.string,
-    logo: PropTypes.string,
-}
-
-export default Nutritiondata</code></pre>
+export default Navleft</code></pre>
         </article>
     </section>
 

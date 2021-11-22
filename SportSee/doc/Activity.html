@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Nutritiondata/Nutritiondata.js</title>
+    <title>JSDoc: Class: Activity</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,62 +17,155 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Nutritiondata/Nutritiondata.js</h1>
+    <h1 class="page-title">Class: Activity</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react';
-import '../Nutritiondata/Nutritiondata.css'
-import PropTypes from 'prop-types'
+        <h2><span class="attribs"><span class="type-signature"></span></span>Activity<span class="signature">()</span><span class="type-signature"> &rarr; {component}</span></h2>
+        
+            <div class="class-description"><p>Component for user activity</p></div>
+        
+    
+</header>
 
-/**
- * Component for user nutritional value
- * @component 
- * @return {component}
- */
-class Nutritiondata extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            firstName: "",
-        }
-    }
+<article>
+    <div class="container-overview">
+    
+        
 
-    render() {
+    
+    <h2>Constructor</h2>
+    
 
-        return (
-            &lt;div className='Nutritiondata'>
-                &lt;img className='Nutrilogo' src={this.props.logo} alt="logo" />
-                &lt;div className='Nutrisscore'>
-                    &lt;div className='Nutri-value'>{this.props.value}{this.props.unit}&lt;/div>
-                    &lt;div className='Nutri-unit'>{this.props.type}&lt;/div>
-                &lt;/div>
-            &lt;/div>
-        )
-    }
-}
+    
+    <h4 class="name" id="Activity"><span class="type-signature"></span>new Activity<span class="signature">()</span><span class="type-signature"> &rarr; {component}</span></h4>
+    
 
-Nutritiondata.propTypes = {
-    /**
-     * value from Api
-     */
-    value: PropTypes.number,
-    /**
-     * unit, type, logo from home page
-     */ 
-    unit: PropTypes.string,
-    type: PropTypes.string,
-    logo: PropTypes.string,
-}
+    
 
-export default Nutritiondata</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="BarChart_Activity.js.html">BarChart/Activity.js</a>, <a href="BarChart_Activity.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">component</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

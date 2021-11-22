@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Nutritiondata/Nutritiondata.js</title>
+    <title>JSDoc: Source: Header/Header.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Nutritiondata/Nutritiondata.js</h1>
+    <h1 class="page-title">Source: Header/Header.js</h1>
 
     
 
@@ -27,50 +27,31 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import '../Nutritiondata/Nutritiondata.css'
-import PropTypes from 'prop-types'
+import logo from '../../Assets/logo.svg'
+import '../Header/Header.css'
+import { NavLink } from 'react-router-dom'
 
 /**
- * Component for user nutritional value
+ * Component for navigation bar
  * @component 
  * @return {component}
  */
-class Nutritiondata extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            firstName: "",
-        }
-    }
-
+class Header extends React.Component {
     render() {
-
         return (
-            &lt;div className='Nutritiondata'>
-                &lt;img className='Nutrilogo' src={this.props.logo} alt="logo" />
-                &lt;div className='Nutrisscore'>
-                    &lt;div className='Nutri-value'>{this.props.value}{this.props.unit}&lt;/div>
-                    &lt;div className='Nutri-unit'>{this.props.type}&lt;/div>
-                &lt;/div>
+            &lt;div className='header'>
+                &lt;img src={logo} className='logo' alt='logo SportSee' />
+                &lt;nav className='navbar'>
+                    &lt;NavLink to="/">Accueil&lt;/NavLink>
+                    &lt;NavLink to="/Profil">profil&lt;/NavLink>
+                    &lt;NavLink to="/Reglage">Réglage&lt;/NavLink>
+                    &lt;NavLink to="/Communaute">Communauté&lt;/NavLink>
+                &lt;/nav>
             &lt;/div>
         )
     }
 }
-
-Nutritiondata.propTypes = {
-    /**
-     * value from Api
-     */
-    value: PropTypes.number,
-    /**
-     * unit, type, logo from home page
-     */ 
-    unit: PropTypes.string,
-    type: PropTypes.string,
-    logo: PropTypes.string,
-}
-
-export default Nutritiondata</code></pre>
+export default Header</code></pre>
         </article>
     </section>
 

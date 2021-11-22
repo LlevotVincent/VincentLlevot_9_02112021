@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: BarChart/Activity.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: BarChart/Activity.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import './Activity.css';
+import callApi from '../API';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+/**
+ * Component for user activity
+ * @component 
+ * @return {component}
+ */
+class Activity extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            dataActivity: [],
+        }
+    }
+
+    componentDidMount() {
+        callApi.findActivity()
+            .then((res) => {
+                // console.log(res.data.data.sessions)
+                let UserInfos = res.data.data
+                this.setState(() => ({
+                    dataActivity: UserInfos.sessions,
+                }))
+            })
+    }
+
+    render() {
+    /**
+        *Change Abscissa name
+        * @param {string} Abscissa tick from data
+        * @return {string} two last character
+    */
+        const formatXAxis = (tickItem) => {
+            if (typeof tickItem === 'string') {
+                return tickItem.substring(tickItem.length - 2, tickItem.length)
+            }
+        }
+    /**
+        *change legend name
+        * @param {string} legend from data
+        * @return {string} new legend with new style
+    */
+        const FormatLegend = (value) => {
+            const style = { color: "#74798C", fontSize: "14px" }
+            if (value === "kilogram") { value = "Poids (kg)" } else { value = "Calories brûlées (KCal)" }
+            return &lt;span style={style}>{value}&lt;/span>
+        }
+    /**
+        *change tooltip design *
+        * @param {object} value from payload
+        * @return {string} new style for tooltip
+    */
+        const CustomTooltip = ({ active, payload }) => {
+            if (active &amp;&amp; payload &amp;&amp; payload.length) {
+                return (
+                    &lt;div className="barChart-custom-tooltip">
+                        &lt;p className="label">{`${payload[0].value} kg`}&lt;/p>
+                        &lt;p className="label">{`${payload[1].value} kCal`}&lt;/p>
+                    &lt;/div>
+                );
+            }
+            return null;
+        };
+
+
+        return (
+            &lt;div className='activity'>
+                &lt;div className='activity-title'>
+                    &lt;h3>Activité quotidienne&lt;/h3>
+                &lt;/div>
+                &lt;ResponsiveContainer width="100%" height="100%">
+                    &lt;BarChart
+                        width='100%'
+                        height='100%'
+                        data={this.state.dataActivity}
+                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                        barGap={8}
+                    >
+                        &lt;CartesianGrid
+                            vertical={false}
+                            strokeDasharray="2 1"
+                        />
+                        &lt;XAxis
+                            stroke="#9B9EAC"
+                            dataKey="day"
+                            tickLine={false}
+                            tickFormatter={formatXAxis}
+
+                        />
+                        &lt;YAxis
+                            orientation="right"
+                            stroke="#9B9EAC"
+                            axisLine={false}
+                            tickCount={3}
+                            tickLine={false}
+                            tickMargin={10}
+                        />
+                        &lt;Tooltip
+                            content={&lt;CustomTooltip />}
+                        />
+                        &lt;Legend
+                            align="right"
+                            verticalAlign="top"
+                            iconType="circle"
+                            wrapperStyle={{ paddingTop: 20, paddingBottom: 40 }}
+                            formatter={FormatLegend}
+                        />
+                        &lt;Bar dataKey="kilogram" fill="#000000" barSize={7} radius={[3, 3, 0, 0]} />
+                        &lt;Bar dataKey="calories" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
+                    &lt;/BarChart>
+                &lt;/ResponsiveContainer>
+            &lt;/div>
+        )
+    }
+}
+
+
+export default Activity</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Activity.html">Activity</a></li><li><a href="AverageSessions.html">AverageSessions</a></li><li><a href="Header.html">Header</a></li><li><a href="Navleft.html">Navleft</a></li><li><a href="Nutritiondata.html">Nutritiondata</a></li><li><a href="RadarPerformance.html">RadarPerformance</a></li><li><a href="ScorePerf.html">ScorePerf</a></li></ul><h3>Global</h3><ul><li><a href="global.html#findActivity">findActivity</a></li><li><a href="global.html#findAverageSessions">findAverageSessions</a></li><li><a href="global.html#findPerformance">findPerformance</a></li><li><a href="global.html#findUser">findUser</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Nov 22 2021 17:34:10 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
