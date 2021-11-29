@@ -4,10 +4,10 @@ import callApi from '../API';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 /**
- * Component for user's time sessions
- * @component 
- * @return {component}
- */
+  * Component for user's time sessions
+  * @component 
+   * @return {component}
+*/
 class AverageSessions extends React.Component {
 
   constructor() {
@@ -27,32 +27,35 @@ class AverageSessions extends React.Component {
         }))
       })
   }
-
-  render() {
   /**
     *Change Abscissa name
+    * @method
     * @param {objet} Abscissa tick from data
     * @return {string} const day on abscissa
   */
-      const day = ["L", "M", "M", "J", "V", "S", "D"]
-      const Changetick = (item) => {
-       return day[item - 1]
+  Changetick = (item) => {
+    const day = ["L", "M", "M", "J", "V", "S", "D"]
+    return day[item - 1]
+  }
+  
+/**
+  *change tooltip design *
+  * @method
+  * @param {object} value from payload
+  * @return {string} new style for tooltip
+*/
+  CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="lineChart-custom-tooltip">
+          <p className="label">{`${payload[0].value} min`}</p>
+        </div>
+      );
     }
-  /**
-    *change tooltip design *
-    * @param {object} value from payload
-    * @return {string} new style for tooltip
-  */
-    const CustomTooltip = ({ active, payload }) => {
-      if (active && payload && payload.length) {
-        return (
-          <div className="lineChart-custom-tooltip">
-            <p className="label">{`${payload[0].value} min`}</p>
-          </div>
-        );
-      }
-      return null;
-    };
+    return null;
+  };
+
+  render() {
 
     return (
       <div className="lineChart-container">
@@ -76,11 +79,11 @@ class AverageSessions extends React.Component {
               axisLine={false}
               tickLine={false}
               stroke="#fff"
-              tickFormatter={Changetick}
+              tickFormatter={this.Changetick}
             />
             <Tooltip
               cursor={false}
-              content={<CustomTooltip />}
+              content={this.CustomTooltip}
             />
             <Line
               dataKey="sessionLength"

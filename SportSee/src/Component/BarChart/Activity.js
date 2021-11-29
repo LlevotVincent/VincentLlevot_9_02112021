@@ -8,6 +8,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
  * @component 
  * @return {component}
  */
+
 class Activity extends React.Component {
 
     constructor() {
@@ -27,45 +28,47 @@ class Activity extends React.Component {
                 }))
             })
     }
-
-    render() {
     /**
         *Change Abscissa name
+        * @method
         * @param {string} Abscissa tick from data
         * @return {string} two last character
     */
-        const formatXAxis = (tickItem) => {
-            if (typeof tickItem === 'string') {
-                return tickItem.substring(tickItem.length - 2, tickItem.length)
-            }
+    formatXAxis = (tickItem) => {
+        if (typeof tickItem === 'string') {
+            return tickItem.substring(tickItem.length - 2, tickItem.length)
         }
+    }
     /**
         *change legend name
+        * @method
         * @param {string} legend from data
         * @return {string} new legend with new style
     */
-        const FormatLegend = (value) => {
-            const style = { color: "#74798C", fontSize: "14px" }
-            if (value === "kilogram") { value = "Poids (kg)" } else { value = "Calories brûlées (KCal)" }
-            return <span style={style}>{value}</span>
-        }
+    FormatLegend = (value) => {
+        const style = { color: "#74798C", fontSize: "14px" }
+        if (value === "kilogram") { value = "Poids (kg)" } else { value = "Calories brûlées (KCal)" }
+        return <span style={style}>{value}</span>
+    }
     /**
         *change tooltip design *
+        * @method
         * @param {object} value from payload
         * @return {string} new style for tooltip
     */
-        const CustomTooltip = ({ active, payload }) => {
-            if (active && payload && payload.length) {
-                return (
-                    <div className="barChart-custom-tooltip">
-                        <p className="label">{`${payload[0].value} kg`}</p>
-                        <p className="label">{`${payload[1].value} kCal`}</p>
-                    </div>
-                );
-            }
-            return null;
-        };
+    CustomTooltip = ({ active, payload }) => {
+        if (active && payload && payload.length) {
+            return (
+                <div className="barChart-custom-tooltip">
+                    <p className="label">{`${payload[0].value} kg`}</p>
+                    <p className="label">{`${payload[1].value} kCal`}</p>
+                </div>
+            );
+        }
+        return null;
+    };
 
+    render() {
 
         return (
             <div className='activity'>
@@ -88,7 +91,7 @@ class Activity extends React.Component {
                             stroke="#9B9EAC"
                             dataKey="day"
                             tickLine={false}
-                            tickFormatter={formatXAxis}
+                            tickFormatter={this.formatXAxis}
 
                         />
                         <YAxis
@@ -100,14 +103,14 @@ class Activity extends React.Component {
                             tickMargin={10}
                         />
                         <Tooltip
-                            content={<CustomTooltip />}
+                            content={this.CustomTooltip}
                         />
                         <Legend
                             align="right"
                             verticalAlign="top"
                             iconType="circle"
                             wrapperStyle={{ paddingTop: 20, paddingBottom: 40 }}
-                            formatter={FormatLegend}
+                            formatter={this.FormatLegend}
                         />
                         <Bar dataKey="kilogram" fill="#000000" barSize={7} radius={[3, 3, 0, 0]} />
                         <Bar dataKey="calories" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />

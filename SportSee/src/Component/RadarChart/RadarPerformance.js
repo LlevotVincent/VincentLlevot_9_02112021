@@ -30,19 +30,20 @@ class RadarPerformance extends React.Component {
         }))
       })
   }
-
-
-  render() {
-
   /**
     *Change tick for french trad
+    * @method
     * @param {objet}  new const created
     * @return {string} const stat on tick
   */
-    const stat = ["Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"]
-    const Changetick = (item) => {
+    Changetick = (item) => {
+      const stat = ["Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"]
       return stat[item - 1]
     }
+
+  render() {
+
+
 
     return (
       <div className='RadarChart-container'>
@@ -51,7 +52,7 @@ class RadarPerformance extends React.Component {
             <PolarGrid />
             <PolarAngleAxis
               dataKey="kind"
-              tickFormatter={Changetick}
+              tickFormatter={this.Changetick}
               stroke="#FFFFFF"
               fontSize={12}
               tickLine={false} 

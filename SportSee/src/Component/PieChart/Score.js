@@ -33,7 +33,7 @@ class ScorePerf extends React.Component {
   render() {
   /**
     *Use to get infromation from API
-    *To solve difference from data from the same information from different user
+    *To solve difference from data between user
   */
     let dataPerf = this.state.dataPerf.todayScore
     let ErrorData = this.state.dataPerf.score

@@ -4,7 +4,8 @@
   },
   "scripts": {
     "start": "concurrently \"cd P9_Api/app && node index.js\" \"cd SportSee && yarn start\""
+  },
+  "devDependencies": {
+    "better-docs": "^2.3.2"
   }
 }
-
-

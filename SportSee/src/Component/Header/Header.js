@@ -4,9 +4,9 @@ import '../Header/Header.css'
 import { NavLink } from 'react-router-dom'
 
 /**
- * Component for navigation bar
- * @component 
- * @return {component}
+    * Component for navigation bar
+    * @component 
+    * @return {component}
  */
 class Header extends React.Component {
     render() {
