@@ -35,18 +35,24 @@ class ScorePerf extends React.Component {
     *Use to get infromation from API
     *To solve difference from data between user
   */
-    let dataPerf = this.state.dataPerf.todayScore
+
+    let dataScore = this.state.dataPerf.todayScore
     let ErrorData = this.state.dataPerf.score
-    if (dataPerf === undefined) {
-      dataPerf = ErrorData
+
+    if (dataScore === undefined) {
+      dataScore = ErrorData
+      if(ErrorData === undefined){
+        return <div>Désolé, je ne peux récupérer les données</div>
+      }
     }
+    
 
   /**
     *Use to define value and fill for data  .
   */
     const data = [
-      { name: 'Group A', value: dataPerf, fill: 'red' },
-      { name: 'Group A', value: 1 - dataPerf, fill: 'transparent', strokeWidth: 0 }
+      { name: 'Group A', value: dataScore, fill: 'red' },
+      { name: 'Group A', value: 1 - dataScore, fill: 'transparent', strokeWidth: 0 }
     ];
 
     const data02 = [
@@ -81,7 +87,7 @@ class ScorePerf extends React.Component {
           </PieChart>
         </ResponsiveContainer>
         <div className="PieChart-title">Score</div>
-        <div className="UserPerf">{dataPerf * 100}%
+        <div className="UserPerf">{dataScore * 100}%
           <p>de votre activité</p>
         </div>
       </div>

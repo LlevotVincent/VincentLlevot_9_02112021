@@ -215,7 +215,7 @@ const USER_PERFORMANCE = [
             },
             {
                 value: 200,
-                kind: 5
+
             },
             {
                 value: 90,

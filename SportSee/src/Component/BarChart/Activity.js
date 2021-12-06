@@ -15,7 +15,9 @@ class Activity extends React.Component {
         super();
         this.state = {
             dataActivity: [],
+            error: false
         }
+
     }
 
     componentDidMount() {
@@ -27,6 +29,9 @@ class Activity extends React.Component {
                     dataActivity: UserInfos.sessions,
                 }))
             })
+            // .catch(function () {
+            //     this.setState({ error: true })
+            // })
     }
     /**
         *Change Abscissa name
@@ -68,58 +73,76 @@ class Activity extends React.Component {
         return null;
     };
 
-    render() {
-
-        return (
-            <div className='activity'>
-                <div className='activity-title'>
-                    <h3>Activité quotidienne</h3>
-                </div>
-                <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                        width='100%'
-                        height='100%'
-                        data={this.state.dataActivity}
-                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                        barGap={8}
-                    >
-                        <CartesianGrid
-                            vertical={false}
-                            strokeDasharray="2 1"
-                        />
-                        <XAxis
-                            stroke="#9B9EAC"
-                            dataKey="day"
-                            tickLine={false}
-                            tickFormatter={this.formatXAxis}
-
-                        />
-                        <YAxis
-                            orientation="right"
-                            stroke="#9B9EAC"
-                            axisLine={false}
-                            tickCount={3}
-                            tickLine={false}
-                            tickMargin={10}
-                        />
-                        <Tooltip
-                            content={this.CustomTooltip}
-                        />
-                        <Legend
-                            align="right"
-                            verticalAlign="top"
-                            iconType="circle"
-                            wrapperStyle={{ paddingTop: 20, paddingBottom: 40 }}
-                            formatter={this.FormatLegend}
-                        />
-                        <Bar dataKey="kilogram" fill="#000000" barSize={7} radius={[3, 3, 0, 0]} />
-                        <Bar dataKey="calories" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
-                    </BarChart>
-                </ResponsiveContainer>
-            </div>
-        )
+    Test = () => {
+        let kilogram = this.state.dataActivity
+        for (let item of kilogram) {
+            console.log(item)
+        if( item.kilogram === undefined){
+            item.kilogram = 0
+        }
+        return item.kilogram
     }
-}
 
+    }
+    render() {
+    
+        for (let item of this.state.dataActivity) {
+            if(item.kilogram === undefined){
+                item.kilogram = 0;
+            }
+            if(item.calories === undefined){
+                item.calories = 0;
+            }
+        }
+            return (
+                <div className='activity'>
+                    <div className='activity-title'>
+                        <h3>Activité quotidienne</h3>
+                    </div>
+                    <ResponsiveContainer width="100%" height="100%">
+                        <BarChart
+                            width='100%'
+                            height='100%'
+                            data={this.state.dataActivity}
+                            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                            barGap={8}
+                        >
+                            <CartesianGrid
+                                vertical={false}
+                                strokeDasharray="2 1"
+                            />
+                            <XAxis
+                                stroke="#9B9EAC"
+                                dataKey="day"
+                                tickLine={false}
+                                tickFormatter={this.formatXAxis}
+
+                            />
+                            <YAxis
+                                orientation="right"
+                                stroke="#9B9EAC"
+                                axisLine={false}
+                                tickCount={3}
+                                tickLine={false}
+                                tickMargin={10}
+                            />
+                            <Tooltip
+                                content={this.CustomTooltip}
+                            />
+                            <Legend
+                                align="right"
+                                verticalAlign="top"
+                                iconType="circle"
+                                wrapperStyle={{ paddingTop: 20, paddingBottom: 40 }}
+                                formatter={this.FormatLegend}
+                            />
+                            <Bar dataKey= "kilogram" fill="#000000" barSize={7} radius={[3, 3, 0, 0]} />
+                            <Bar dataKey="calories" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
+                        </BarChart>
+                    </ResponsiveContainer>
+                </div>
+            )
+        }
+    }
 
 export default Activity

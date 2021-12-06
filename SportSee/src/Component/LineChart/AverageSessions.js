@@ -57,6 +57,12 @@ class AverageSessions extends React.Component {
 
   render() {
 
+    for (let item of this.state.dataSessions) {
+      if(item.sessionLength === undefined){
+          item.sessionLength = 0;
+      }
+  }
+
     return (
       <div className="lineChart-container">
         <h2>Durée moyenne des sessions</h2>

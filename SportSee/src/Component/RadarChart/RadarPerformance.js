@@ -43,7 +43,14 @@ class RadarPerformance extends React.Component {
 
   render() {
 
-
+    for (let item of this.state.dataRadar) {
+      if(item.value === undefined){
+          item.value = 0;
+      }
+      if(item.kind === undefined){
+        item.value = 0;
+    }
+  }
 
     return (
       <div className='RadarChart-container'>
