@@ -5,15 +5,12 @@ import PropTypes from 'prop-types'
 /**
  * Component for user nutritional value
  * @component 
+ * 
  * @return {component}
  */
+
+
 class Nutritiondata extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            firstName: "",
-        }
-    }
 
     render() {
 
@@ -28,18 +25,23 @@ class Nutritiondata extends React.Component {
         )
     }
 }
-
 Nutritiondata.propTypes = {
     /**
      * value from Api
      */
     value: PropTypes.number,
     /**
-     * unit, type, logo from home page
+     * unit for nutrition data
      */ 
     unit: PropTypes.string,
-    type: PropTypes.string,
+       /**
+     * type for nutrition data
+     */ 
+    type: PropTypes.string,  
+    /**
+    * logo for nutrition data
+    */ 
     logo: PropTypes.string,
 }
-
 export default Nutritiondata
+
